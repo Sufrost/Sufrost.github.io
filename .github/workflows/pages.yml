@@ -1,47 +1,41 @@
-name: Pages
+name: GitHub Pages
 
 on:
   push:
     branches:
-      - main # default branch
+      - main  # 替换为你的默认分支名称
 
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          submodules: recursive
-      - name: Use Node.js 20
+          submodules: true  # 如果使用了子模块主题，保留此选项
+          fetch-depth: 0    # 拉取所有历史，用于正确生成时间戳
+
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
-      - name: Cache NPM dependencies
+          node-version: '18'  # 选择合适的 Node.js 版本
+
+      - name: Cache dependencies
         uses: actions/cache@v4
         with:
-          path: node_modules
-          key: ${{ runner.OS }}-npm-cache
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.OS }}-npm-cache
-      - name: Install Dependencies
-        run: npm install
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm install  # 安装 package.json 中的所有依赖，包括主题
+
       - name: Build
-        run: npm run build
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        run: npm run build  # 执行 Hexo 构建命令
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: ./public
-  deploy:
-    needs: build
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public  # Hexo 默认生成的静态文件目录
