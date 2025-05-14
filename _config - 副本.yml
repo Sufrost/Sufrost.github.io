@@ -4,8 +4,8 @@
 
 # Site
 title: 五十朝岚
-subtitle: '保持热爱，奔赴山海'
-description: '心有所向，无问东西'
+subtitle: ''
+description: ''
 keywords:
 author: 五十朝岚
 language: zh-CN
@@ -40,7 +40,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: true
+post_asset_folder: false
 relative_link: false
 future: true
 syntax_highlighter: highlight.js
@@ -96,12 +96,9 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: Sw-blog
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
-search:
-  path: search.xml
-  field: post

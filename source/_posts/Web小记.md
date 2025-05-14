@@ -35,8 +35,9 @@ git push origin main  # 假设主分支名为 main
 
 ```bash
 git add _posts/  # 添加所有文章变更
-git commit -m "Update posts"
-git push origin main
+git status #检查状态
+git commit -m "Update posts" #提交功能 “”内添加描述
+git push origin main #推送
 ```
 
 GitHub Actions 会自动处理部署，无需手动干预。
