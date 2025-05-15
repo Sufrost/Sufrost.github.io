@@ -1,3 +1,6 @@
 [submodule "themes/Sw-blog"]
 	path = themes/Sw-blog
 	url = https://github.com/WinMin/Sw-blog.git
+[submodule "themes/hexploit"]
+	path = themes/hexploit
+	url = https://github.com/Sufrost/hexo-theme-hexploit
