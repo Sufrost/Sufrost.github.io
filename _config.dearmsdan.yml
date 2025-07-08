@@ -1,0 +1,196 @@
+# ---------------------------------------------------------------
+#  帮助
+# ---------------------------------------------------------------
+
+  # [] 代表类型 {} 代表默认值 
+   ## 例如：
+    # 每个注释后面带有[String]或者其他类型标识,意思为您需要填写String类型或者其他类型
+    # 每个注释后面带有{true} 或者其他数据,意思为这个默认值为true,无默认值是为空
+
+author: 'Ch@s4' # [String]{dearmsdan} 网站作者
+
+# ---------------------------------------------------------------
+#  head.ejs 请求头信息
+# ---------------------------------------------------------------
+
+head:
+  keywords: 'hexo,dearmsdan.com,It gives people a sense of emptiness,hexo-theme-dearmsdan一款Hexo主题,hexo简约主题' # [String]{} 网站关键字 
+  description: 'Ch@s4' # [String]{} 网站描述 
+  favicon: # 网站标题图标
+    href: '' # [String]{} 网站标题图标 
+    type: 'image/png' # [String]{image/png}  # 图标类型，可能的值有(image/png, image/vnd.microsoft.icon, image/x-icon, image/gif)
+
+
+# ---------------------------------------------------------------
+#  header.ejs 导航栏
+# ---------------------------------------------------------------
+
+header:
+  home:
+    img: '' # [String]{#} 网站logo
+    avg: '&#xe610;' # [String]{&#xe610;} iocn logo
+  title:  # 网站标题和副标题
+    name: '五十朝岚' # [String]{未设置}
+    subtitle: '心之所向,无问西东.' # [String]{未设置}
+  function: #  导航栏 功能性效果
+    fixed: true # [boolean]{true} 是否固定导航栏 
+    scrollTop: true # [boolean]{false} 是否为滚动显示导航栏 
+    time: 100 # [Number]{500} 是否向上滚动固定导航栏-防抖数值(数值越小对性能有影响) 
+
+# [Object] 导航列表数据集 
+#  *** 注意事项，父-id为不可重复项
+headerNav: [
+  {
+    title: '首页'   
+    ,id: 'home'        
+    ,href: '/'     
+  }
+  ,{
+    title: '分类'   
+    ,id: '#2'        
+    ,href: 'javascript:void(0);'    
+    ,root: true
+    ,child: [
+              {
+                title: '归档'
+                ,id: 'active'
+                ,href: '/active.html'
+                ,align: 'center' 
+              }
+              ,{
+                title: '分类'
+                ,id: 'category'
+                ,href: '/categoryPage.html'
+                ,align: 'center'
+              }
+              ,{
+                title: '标签'
+                ,id: 'tagcloud'
+                ,href: '/tagPage.html'
+                ,align: 'center'
+              }
+            ]
+  }
+]
+
+### 文章类别管理
+## 统计 文章类名 无需修改
+# 统计
+count:
+  articles: 文章
+  tags: 标签
+  categories: 分类
+
+# 文章类名
+side:
+  archive: 文章归档
+  categories: 文章分类
+  tagcloud: 标签 
+
+## 分类功能设置
+# 归档
+articles:  
+  year: false # [boolean]{false} 年度展示为打开状态
+  month: false # [boolean]{false} 月度展示为打开状态
+  
+
+
+# ---------------------------------------------------------------
+#  index.ejs 首页
+# ---------------------------------------------------------------
+
+index:
+  style: # 页面样式
+    single: true # [boolean]{true} 开启首页
+  prompt: # 来源于提示说明
+    color: '#666' # [String]{#666} 颜色
+    bg: '#e5f4ff' # [String]{#e5f4ff} 背景颜色
+    lineTips: '文章底部查看详情' # [String]{文章底部查看详情} 提示
+
+
+
+
+# ---------------------------------------------------------------
+#  post.ejs 文章页
+# ---------------------------------------------------------------
+
+  
+post:
+  style: # 页面样式
+    single: true # [boolean]{true} 开启首页
+  prompt: # 提示说明
+    color: '#666' # [String]{#666} 颜色
+    bg: '#e5f4ff' # [String]{#e5f4ff} 背景颜色
+  code: # 代码块
+    hover: true # [boolean]{true} 开启当前行点击悬浮
+    auto_copy: true # [boolean]{true} 开启当前行点击复制
+    height: 500 # [Number]{500/0} 设置代码快最大高度,0为设置默认
+
+
+# ---------------------------------------------------------------
+#  footer.ejs 底部栏
+# ---------------------------------------------------------------
+
+date: # 时间设置
+  s: '2025/7/1 0:0:0' # [String]{2018/11/25 0:0:0} 设置网站多久运行的时间戳
+footer:
+  info:
+    info1: "<font style='color:#ff8f8f;font-size:100%'>♥</font>"  # [String]{}
+    info2: "© 2025-现在 - 五十朝岚 "  # [String]{}
+    info3: "基于Hexo框架"  # [String]{}
+
+
+
+# ---------------------------------------------------------------
+#  通用设置
+# ---------------------------------------------------------------
+    
+SeablueImg:  # 背景设置
+  bg: "/2.jpeg" # [String]{}
+  # bg: "https://api.vvhan.com/api/acgimg" # [String]{}
+
+# ---------------------------------------------------------------
+#  js.ejs 共用插件
+# ---------------------------------------------------------------
+
+lazyload: # 懒加载功能
+  time: 100 # [String]{100}  出现时间
+
+linkExternal: # 外链功能
+  enable: true # [boolean]{true} 开启外链
+  link: "['https://space.bilibili.com/401519720?spm_id_from=333.1387.0.0','https://space.bilibili.com/401519720?spm_id_from=333.1387.0.0']" # 信任链接 是String类型，但是里面值的是个数组形式
+  # [array]{['www.Dearmsdan.com','dearmsdan.com','12312.com']} 
+
+transitionImg: # 图片悬浮效果 
+  enable: true # [boolean]{true} 开启效果
+
+   
+
+# ---------------------------------------------------------------
+#  Hexo或者第三方插件 均默认关闭
+# ---------------------------------------------------------------
+
+# 搜索
+# https://segmentfault.com/a/1190000011917419
+# https://www.hahack.com/codes/local-search-engine-for-hexo/
+search:
+  enable: false  # [boolean]{false} 开启搜索功能  没安装插件启用 会报错
+# ***注意，搜索也会有出错的时候，比如文章中的非法字符会导致搜索功能失效，与本主题无关
+# ***需要自己在localhost:4000/search.xml 索引寻找非法字符 在md编辑器删除就正常了
+
+# 评论
+# 请不要用这个功能，因为这个是dearmsdan个人评论项目
+comment: 
+  enable: true  # [boolean]{false} 开启评论功能  不管有没有用，你不用开就行了，开了也没用，除非你有对应后台数据对应前端渲染字段
+  url:
+    link: 'http://localhost:3030'   # [String]{} 评论后台地址
+    sort: '-1'    # [String]{-1/1} 获取评论的排序方式
+
+# katex 公式
+katex: #
+  css: "/resources/katex/katex.min.css"
+  js1: "/resources/katex/katex.min.js"
+  js2: "/resources/katex/auto-render.min.js"
+
+# http://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302
+# https://api.vvhan.com/api/acgimg
